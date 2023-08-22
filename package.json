@@ -7,8 +7,9 @@
   "description": "This is a nodejs Intership project",
   "main": "index.js",
   "scripts": {
-    "start:dev": "npx nodemon",
-    "test": "jest"
+    "test": "jest",
+    "dev": "nodemon ./src/index.ts",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
