@@ -29,14 +29,8 @@ describe("Unit tests", () => {
   describe("Auth functions to be functions", () => {
     it("should have a signup function", () => {
       expect(typeof AuthService.signup).toBe("function");
-    });
-    it("should have a signup function", () => {
       expect(typeof AuthService.login).toBe("function");
-    });
-    it("should have a signup function", () => {
       expect(typeof AuthService.protect).toBe("function");
-    });
-    it("should have a signup function", () => {
       expect(typeof AuthService.signToken).toBe("function");
     });
   });

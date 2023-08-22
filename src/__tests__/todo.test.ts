@@ -8,8 +8,6 @@ const newTodo = {
   title: "Wash your car",
   completed: true,
 };
-const userId = new mongoose.Types.ObjectId().toString();
-
 let testUser: any;
 let testTodo: any;
 
@@ -22,17 +20,9 @@ describe("Unit tests", () => {
   describe("Auth functions to be functions", () => {
     it("should have a signup function", () => {
       expect(typeof TodoService.createTodo).toBe("function");
-    });
-    it("should have a signup function", () => {
       expect(typeof TodoService.deleteOneTodo).toBe("function");
-    });
-    it("should have a signup function", () => {
       expect(typeof TodoService.getAllTodo).toBe("function");
-    });
-    it("should have a signup function", () => {
       expect(typeof TodoService.getOneTodo).toBe("function");
-    });
-    it("should have a signup function", () => {
       expect(typeof TodoService.updateOneTodo).toBe("function");
     });
   });
