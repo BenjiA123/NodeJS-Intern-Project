@@ -31,9 +31,17 @@ describe("Unit tests", () => {
 describe("ToDo List", () => {
   beforeAll(async () => {
     const mongoServer = await MongoMemoryServer.create();
-    await mongoose.connect(
-      "mongodb+srv://adeoul001:RMfBrCYYtvUyXiNR@nodejsintern.d53fa5k.mongodb.net"
-    );
+    // "mongodb+srv://adeoul001:RMfBrCYYtvUyXiNR@nodejsintern.d53fa5k.mongodb.net"
+    const dataDB = await mongoose.connect(mongoServer.getUri());
+    // Check if you r are connected
+
+    // mongoose.connection.on("connection", (val) => {
+    //   console.log(val);
+    // });
+
+    mongoose.connection.on("error", (val) => {
+      console.log(val);
+    });
     const createdUser = await supertest(app)
       .post("/api/v1/auth/signup")
       .send(newUser);
