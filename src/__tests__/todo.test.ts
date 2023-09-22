@@ -1,6 +1,6 @@
 import supertest from "supertest";
 import { MongoMemoryServer } from "mongodb-memory-server";
-import mongoose from "mongoose";
+import mongoose, { ConnectOptions } from "mongoose";
 import app from "../server";
 import * as TodoService from "../controllers/todoController";
 
@@ -31,7 +31,9 @@ describe("Unit tests", () => {
 describe("ToDo List", () => {
   beforeAll(async () => {
     const mongoServer = await MongoMemoryServer.create();
-    await mongoose.connect(mongoServer.getUri());
+    await mongoose.connect(
+      "mongodb+srv://adeoul001:RMfBrCYYtvUyXiNR@nodejsintern.d53fa5k.mongodb.net"
+    );
     const createdUser = await supertest(app)
       .post("/api/v1/auth/signup")
       .send(newUser);

@@ -1,0 +1,31 @@
+name: node_intern
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  dashboard_login_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use the secret
+        env:
+          MONGODB_TEST_URL: mongodb+srv://adeoul001:RMfBrCYYtvUyXiNR@nodejsintern.d53fa5k.mongodb.net
+        run: echo "My secret key is $MONGODB_TEST_URL"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+
+        with:
+          node-version: 18.x
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm run test

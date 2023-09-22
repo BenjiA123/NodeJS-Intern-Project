@@ -20,6 +20,7 @@ const createTodo = catchAsync(
 );
 const getAllTodo = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
+    console.log("We are getting all todos");
     const todos = await Todo.find();
     res.status(200).json({
       status: "Success",
